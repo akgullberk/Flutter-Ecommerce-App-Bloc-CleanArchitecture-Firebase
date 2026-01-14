@@ -4,7 +4,6 @@ import 'package:ecommerceapp/domain/auth/repository/auth.dart';
 import 'package:ecommerceapp/domain/auth/usecases/get_ages.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signin.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signup.dart';
-import 'package:ecommerceapp/presentation/auth/widgets/ages.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

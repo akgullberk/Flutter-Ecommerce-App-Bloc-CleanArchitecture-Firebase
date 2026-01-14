@@ -1,13 +1,16 @@
 import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_app_button.dart';
+import 'package:ecommerceapp/data/auth/models/user_signin_req.dart';
 import 'package:ecommerceapp/presentation/auth/pages/enter_password.dart';
 import 'package:ecommerceapp/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
+
+  final TextEditingController _emailCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,10 @@ class SigninPage extends StatelessWidget {
   Widget _continueButton(BuildContext context) {
     return BasicAppButton(
       onPressed: () {
-        AppNavigator.push(context, const EnterPasswordPage());
+        AppNavigator.push(
+          context,
+          EnterPasswordPage(signinReq: UserSigninReq(email: _emailCon.text)),
+        );
       },
       title: "Continue",
     );
