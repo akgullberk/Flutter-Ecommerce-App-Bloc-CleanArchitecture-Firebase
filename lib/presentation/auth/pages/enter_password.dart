@@ -2,7 +2,6 @@ import 'package:ecommerceapp/common/bloc/button/button_state.dart';
 import 'package:ecommerceapp/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/common/widgets/appbar/app_bar.dart';
-import 'package:ecommerceapp/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_reactive_button.dart';
 import 'package:ecommerceapp/data/auth/models/user_signin_req.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signin.dart';
@@ -34,6 +33,7 @@ class EnterPasswordPage extends StatelessWidget {
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);
               }
+              if (state is ButtonSuccessState) {}
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class EnterPasswordPage extends StatelessWidget {
           },
           title: "Continue",
         );
-      }
+      },
     );
   }
 
@@ -94,7 +94,7 @@ class EnterPasswordPage extends StatelessWidget {
             recognizer:
                 TapGestureRecognizer()
                   ..onTap = () {
-                    AppNavigator.push(context, const ForgotPasswordPage());
+                    AppNavigator.push(context, ForgotPasswordPage());
                   },
             style: TextStyle(fontWeight: FontWeight.bold),
           ),

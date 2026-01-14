@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:ecommerceapp/data/auth/models/user_creation_req.dart';
 import 'package:ecommerceapp/data/auth/models/user_signin_req.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signup(UserCreationReq user);
   Future<Either> signin(UserSigninReq user);
   Future<Either> getAges();
+  Future<Either> sendPasswordResetEmail(String email);
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -75,6 +75,16 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       }
 
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> sendPasswordResetEmail(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return const Right('Password reset email is sent');
+    } catch (e) {
+      return const Left('Please try again');
     }
   }
 }
