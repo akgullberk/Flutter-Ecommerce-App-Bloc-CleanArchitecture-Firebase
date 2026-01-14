@@ -1,89 +1,135 @@
 import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_app_button.dart';
-import 'package:ecommerceapp/presentation/auth/pages/enter_password.dart';
+import 'package:ecommerceapp/data/auth/models/user_creation_req.dart';
+import 'package:ecommerceapp/presentation/auth/pages/gender_and_age_selection.dart';
 import 'package:ecommerceapp/presentation/auth/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+  SignupPage({super.key});
+
+  final TextEditingController _firstNameCon = TextEditingController();
+  final TextEditingController _lastNameCon = TextEditingController();
+  final TextEditingController _emailCon = TextEditingController();
+  final TextEditingController _passwordCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppbar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
+      appBar: const BasicAppbar(),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 40
+      ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _signinText(context),
-            SizedBox(height: 20),
-            _firstNameField(context),
-            SizedBox(height: 20),
-            _lastNameField(context),
-            SizedBox(height: 20),
-            _emailField(context),
-            SizedBox(height: 20),
+            _siginText(),
+            const SizedBox(height: 20,),
+            _firstNameField(),
+            const SizedBox(height: 20,),
+            _lastNameField(),
+            const SizedBox(height: 20,),
+            _emailField(),
+            const SizedBox(height: 20,),
             _passwordField(context),
-            SizedBox(height: 20),
+            const SizedBox(height: 20,),
             _continueButton(context),
-            SizedBox(height: 20),
-            _createAccount(context),
+            const SizedBox(height: 20,),
+            _createAccount(context)
           ],
         ),
       ),
     );
   }
 
-  Widget _signinText(BuildContext context) {
-    return Text(
-      "Create Account",
-      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+  Widget _siginText() {
+    return const Text(
+      'Create Account',
+      style: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold
+      ),
     );
   }
 
-  Widget _firstNameField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: "Firstname"));
+  Widget _firstNameField() {
+    return TextField(
+      controller: _firstNameCon,
+      decoration: const InputDecoration(
+        hintText: 'Firstname'
+      ),
+    );
   }
 
-  Widget _lastNameField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: "Lastname"));
+  Widget _lastNameField() {
+    return TextField(
+      controller: _lastNameCon,
+      decoration: const InputDecoration(
+        hintText: 'Lastname'
+      ),
+    );
   }
 
-  Widget _emailField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: "Email Address"));
+  Widget _emailField() {
+    return TextField(
+      controller: _emailCon,
+      decoration: const InputDecoration(
+        hintText: 'Email Address'
+      ),
+    );
   }
 
   Widget _passwordField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: "Password"));
+    return TextField(
+      controller: _passwordCon,
+      decoration: const InputDecoration(
+        hintText: 'Password'
+      ),
+    );
   }
 
   Widget _continueButton(BuildContext context) {
     return BasicAppButton(
-      onPressed: () {
-        AppNavigator.push(context, const EnterPasswordPage());
+      onPressed: (){
+        AppNavigator.push(
+          context,
+          GenderAndAgeSelectionPage(
+            userCreationReq: UserCreationReq(
+              firstName: _firstNameCon.text,
+              email: _emailCon.text, 
+              lastName: _lastNameCon.text,
+              password: _passwordCon.text
+            ),
+          )
+        );
       },
-      title: "Continue",
+      title: 'Continue'
     );
   }
 
   Widget _createAccount(BuildContext context) {
     return RichText(
       text: TextSpan(
-        children: [
-          TextSpan(text: "Do you have an account? "),
-          TextSpan(
-            text: "Signin",
-            recognizer:
-                TapGestureRecognizer()
-                  ..onTap = () {
-                    AppNavigator.push(context, const SigninPage());
-                  },
-            style: TextStyle(fontWeight: FontWeight.bold),
+        children:  [
+          const TextSpan(
+            text: "Do you have an account? "
           ),
-        ],
+           TextSpan(
+            text: 'Signin',
+            recognizer:TapGestureRecognizer()..onTap = () {
+              AppNavigator.pushReplacement(context, SigninPage());
+            } ,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold
+            )
+          )
+        ]
+
       ),
     );
   }
