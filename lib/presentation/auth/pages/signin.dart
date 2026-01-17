@@ -42,7 +42,10 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: "Enter Email"));
+    return TextField(
+      controller: _emailCon,
+      decoration: InputDecoration(hintText: "Enter Email"),
+    );
   }
 
   Widget _continueButton(BuildContext context) {

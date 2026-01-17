@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerceapp/data/auth/models/user.dart';
 import 'package:ecommerceapp/data/auth/models/user_creation_req.dart';
 import 'package:ecommerceapp/data/auth/models/user_signin_req.dart';
 import 'package:ecommerceapp/data/auth/sources/auth_firebase_service.dart';
@@ -25,5 +26,20 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<Either> sendPasswordResetEmail(String email) async {
         return await sl<AuthFirebaseService>().sendPasswordResetEmail(email);
 
+  }
+
+  @override
+  Future < Either > getUser() async {
+    var user = await sl<AuthFirebaseService>().getUser();
+    return user.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+        return Right(
+          UserModel.fromMap(data).toEntity()
+        );
+      }
+    );
   }
 }
