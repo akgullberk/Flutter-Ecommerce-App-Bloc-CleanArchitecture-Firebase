@@ -1,6 +1,4 @@
 
-
-import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/core/configs/assets/app_images.dart';
 import 'package:ecommerceapp/core/configs/assets/app_vectors.dart';
 import 'package:ecommerceapp/core/configs/theme/app_colors.dart';
@@ -8,7 +6,6 @@ import 'package:ecommerceapp/domain/auth/entity/user.dart';
 import 'package:ecommerceapp/presentation/home/bloc/user_info_display_cubit.dart';
 import 'package:ecommerceapp/presentation/home/bloc/user_info_display_state.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
