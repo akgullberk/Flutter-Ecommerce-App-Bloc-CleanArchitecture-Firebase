@@ -5,7 +5,7 @@ abstract class ProductFirebaseService {
   Future<Either> getTopSelling();
   Future<Either> getNewIn();
   Future<Either> getProductsByCategoryId(String categoryId);
-
+  Future<Either> getProductsByTitle(String title);
   
 }
 
@@ -77,6 +77,30 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
       );
     }
   }
+
+  @override
+  Future<Either> getProductsByTitle(String title) async {
+     try {
+      // Tüm ürünleri çek
+      var returnedData = await FirebaseFirestore.instance.collection(
+        'Products'
+      ).get();
+      
+      // İstemci tarafında filtreleme yap (case-insensitive)
+      var filteredProducts = returnedData.docs.where((doc) {
+        var productTitle = doc.data()['title'].toString().toLowerCase();
+        var searchTitle = title.toLowerCase();
+        return productTitle.contains(searchTitle);
+      }).toList();
+      
+      return Right(filteredProducts.map((e) => e.data()).toList());
+    } catch (e) {
+      return const Left(
+        'Please try again'
+      );
+    }
+  }
+
 
 
 }

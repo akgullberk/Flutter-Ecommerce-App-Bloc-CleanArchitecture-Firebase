@@ -1,12 +1,23 @@
+import 'package:ecommerceapp/domain/auth/usecases/is_logged_in.dart';
 import 'package:ecommerceapp/presentation/splash/bloc/splash_state.dart';
+import 'package:ecommerceapp/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SplashCubit extends Cubit<SplashState>{
+class SplashCubit extends Cubit<SplashState> {
 
   SplashCubit() : super(DisplaySplash());
 
-  void appStarted() async{
+  void appStarted() async {
     await Future.delayed(const Duration(seconds: 2));
-    emit(Authenticated());
+    var isLoggedIn = await sl<IsLoggedInUseCase>().call();
+    if (isLoggedIn) {
+      emit(
+        Authenticated()
+      );
+    } else {
+      emit(
+        UnAuthenticated()
+      );
+    }
   }
 }

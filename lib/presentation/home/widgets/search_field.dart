@@ -1,4 +1,6 @@
+import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/core/configs/assets/app_vectors.dart';
+import 'package:ecommerceapp/presentation/search/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,7 +16,7 @@ class SearchField extends StatelessWidget {
       child: TextField(
         readOnly: true,
         onTap: (){
-          //AppNavigator.push(context, const SearchPage());
+          AppNavigator.push(context, const SearchPage());
         },
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(12),

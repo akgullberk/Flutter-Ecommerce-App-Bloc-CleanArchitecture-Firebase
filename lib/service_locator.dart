@@ -7,6 +7,7 @@ import 'package:ecommerceapp/data/product/sources/product_firebase_service.dart'
 import 'package:ecommerceapp/domain/auth/repository/auth.dart';
 import 'package:ecommerceapp/domain/auth/usecases/get_ages.dart';
 import 'package:ecommerceapp/domain/auth/usecases/get_user.dart';
+import 'package:ecommerceapp/domain/auth/usecases/is_logged_in.dart';
 import 'package:ecommerceapp/domain/auth/usecases/send_password_reset_email.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signin.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signup.dart';
@@ -15,6 +16,7 @@ import 'package:ecommerceapp/domain/category/usecases/get_categories.dart';
 import 'package:ecommerceapp/domain/product/repository/product.dart';
 import 'package:ecommerceapp/domain/product/usecases/get_new_in.dart';
 import 'package:ecommerceapp/domain/product/usecases/get_products_by_categoryId.dart';
+import 'package:ecommerceapp/domain/product/usecases/get_products_by_title.dart';
 import 'package:ecommerceapp/domain/product/usecases/get_top_selling.dart';
 import 'package:get_it/get_it.dart';
 
@@ -69,6 +71,13 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<GetProductsByCategoryIdUseCase>(
     GetProductsByCategoryIdUseCase()
   );
+  sl.registerSingleton<GetProductsByTitleUseCase>(
+    GetProductsByTitleUseCase()
+  );
+  sl.registerSingleton<IsLoggedInUseCase>(
+    IsLoggedInUseCase()
+  );
+
 
 
 
