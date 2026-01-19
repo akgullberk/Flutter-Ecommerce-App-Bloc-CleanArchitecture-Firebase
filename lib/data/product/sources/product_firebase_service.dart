@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 abstract class ProductFirebaseService {
   Future<Either> getTopSelling();
   Future<Either> getNewIn();
+  Future<Either> getProductsByCategoryId(String categoryId);
 
   
 }
@@ -19,6 +20,16 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
         'salesNumber',
         isGreaterThanOrEqualTo: 20
       ).get();
+      
+      // DEBUG: İlk ürünün categoryId'sini kontrol et
+      if (returnedData.docs.isNotEmpty) {
+        var firstProduct = returnedData.docs.first.data();
+        print('🔎 DEBUG - İlk ürün bilgileri:');
+        print('   Ürün adı: ${firstProduct['title']}');
+        print('   CategoryId: ${firstProduct['categoryId']}');
+        print('   CategoryId tipi: ${firstProduct['categoryId'].runtimeType}');
+      }
+      
       return Right(returnedData.docs.map((e) => e.data()).toList());
     } catch (e) {
       return const Left(
@@ -43,5 +54,29 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
       );
     }
   }
+  
+  @override
+  Future<Either> getProductsByCategoryId(String categoryId) async {
+     try {
+      print('🔍 Aranan CategoryId: $categoryId');
+      var returnedData = await FirebaseFirestore.instance.collection(
+        'Products'
+      ).where(
+        'categoryId',
+        isEqualTo: categoryId
+      ).get();
+      print('📦 Bulunan Ürün Sayısı: ${returnedData.docs.length}');
+      if (returnedData.docs.isNotEmpty) {
+        print('🏷️ İlk ürün categoryId: ${returnedData.docs.first.data()['categoryId']}');
+      }
+      return Right(returnedData.docs.map((e) => e.data()).toList());
+    } catch (e) {
+      print('❌ Hata: $e');
+      return const Left(
+        'Please try again'
+      );
+    }
+  }
+
 
 }
