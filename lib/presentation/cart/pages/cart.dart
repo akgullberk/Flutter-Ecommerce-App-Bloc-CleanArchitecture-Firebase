@@ -1,5 +1,10 @@
 import 'package:ecommerceapp/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerceapp/core/configs/assets/app_vectors.dart';
+import 'package:ecommerceapp/domain/order/entities/product_ordered.dart';
+import 'package:ecommerceapp/presentation/cart/bloc/cart_products_display_cubit.dart';
+import 'package:ecommerceapp/presentation/cart/bloc/cart_products_display_state.dart';
+import 'package:ecommerceapp/presentation/cart/widgets/checkout.dart';
+import 'package:ecommerceapp/presentation/cart/widgets/product_ordered_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
