@@ -2,6 +2,7 @@ import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerceapp/core/configs/theme/app_colors.dart';
 import 'package:ecommerceapp/domain/order/entities/product_ordered.dart';
+import 'package:ecommerceapp/presentation/cart/pages/checkout.dart';
 import 'package:flutter/material.dart';
 
 class Checkout extends StatelessWidget {

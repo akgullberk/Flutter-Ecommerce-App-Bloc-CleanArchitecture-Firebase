@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerceapp/data/order/models/add_to_card_req.dart';
+import 'package:ecommerceapp/data/order/models/order_registration_req.dart';
 import 'package:ecommerceapp/data/order/models/product_ordered.dart';
 import 'package:ecommerceapp/data/order/sources/order_firebase_service.dart';
 import 'package:ecommerceapp/domain/order/repository/order.dart';
@@ -41,6 +42,20 @@ class OrderRepositoryImpl extends OrderRepository {
     );
   }
 
+  @override
+  Future<Either> orderRegistration(OrderRegistrationReq order) async {
+    var returnedData = await sl<OrderFirebaseService>().orderRegistration(order);
+    return returnedData.fold(
+      (error){
+        return Left(error);
+      }, 
+      (message){
+        return Right(
+          message
+        );
+      }
+    );
+  }
 
 
 
