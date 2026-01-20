@@ -1,11 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:ecommerceapp/data/product/models/product.dart';
+import 'package:ecommerceapp/domain/product/entity/product.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class ProductFirebaseService {
   Future<Either> getTopSelling();
   Future<Either> getNewIn();
   Future<Either> getProductsByCategoryId(String categoryId);
   Future<Either> getProductsByTitle(String title);
+  Future<Either> addOrRemoveFavoriteProduct(ProductEntity product);
+
   
 }
 
@@ -100,6 +105,36 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
       );
     }
   }
+
+  @override
+  Future < Either > addOrRemoveFavoriteProduct(ProductEntity product) async {
+    try {
+      var user = FirebaseAuth.instance.currentUser;
+      var products = await FirebaseFirestore.instance.collection(
+        "Users"
+      ).doc(user!.uid).collection('Favorites').where(
+        'productId', isEqualTo: product.productId
+      ).get();
+
+      if (products.docs.isNotEmpty) {
+        await products.docs.first.reference.delete();
+        return const Right(false);
+      } else {
+        await FirebaseFirestore.instance.collection(
+          "Users"
+        ).doc(user.uid).collection('Favorites').add(
+          product.fromEntity().toMap()
+        );
+        return const Right(true);
+      }
+
+    } catch (e) {
+      return const Left(
+        'Please try again'
+      );
+    }
+  }
+
 
 
 

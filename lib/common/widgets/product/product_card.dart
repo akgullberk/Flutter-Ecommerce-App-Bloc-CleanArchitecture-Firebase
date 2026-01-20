@@ -1,6 +1,8 @@
 import 'package:ecommerceapp/common/helper/images/image_display.dart';
+import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/core/configs/theme/app_colors.dart';
 import 'package:ecommerceapp/domain/product/entity/product.dart';
+import 'package:ecommerceapp/presentation/product_detail/pages/product_detail.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -14,7 +16,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        //AppNavigator.push(context, ProductDetailPage(productEntity: productEntity,));
+        AppNavigator.push(context, ProductDetailPage(productEntity: productEntity,));
       },
       child: Container(
         width: 180,

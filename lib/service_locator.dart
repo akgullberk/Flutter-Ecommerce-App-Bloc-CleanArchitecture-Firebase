@@ -12,6 +12,7 @@ import 'package:ecommerceapp/domain/auth/usecases/send_password_reset_email.dart
 import 'package:ecommerceapp/domain/auth/usecases/signin.dart';
 import 'package:ecommerceapp/domain/auth/usecases/signup.dart';
 import 'package:ecommerceapp/domain/category/repository/category.dart';
+import 'package:ecommerceapp/domain/category/usecases/add_or_remove_favorite_product.dart';
 import 'package:ecommerceapp/domain/category/usecases/get_categories.dart';
 import 'package:ecommerceapp/domain/product/repository/product.dart';
 import 'package:ecommerceapp/domain/product/usecases/get_new_in.dart';
@@ -77,6 +78,10 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<IsLoggedInUseCase>(
     IsLoggedInUseCase()
   );
+  sl.registerSingleton<AddOrRemoveFavoriteProductUseCase>(
+    AddOrRemoveFavoriteProductUseCase()
+  );
+
 
 
 

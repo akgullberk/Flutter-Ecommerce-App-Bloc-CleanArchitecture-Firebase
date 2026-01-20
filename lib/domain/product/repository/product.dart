@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:ecommerceapp/domain/product/entity/product.dart';
 
 abstract class ProductRepository {
   
@@ -6,5 +7,6 @@ abstract class ProductRepository {
   Future<Either> getNewIn();
   Future<Either> getProductsByCategoryId(String categoryId);
   Future<Either> getProductsByTitle(String title);
+  Future<Either> addOrRemoveFavoriteProduct(ProductEntity product);
   
 }

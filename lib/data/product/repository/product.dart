@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerceapp/data/product/models/product.dart';
 import 'package:ecommerceapp/data/product/sources/product_firebase_service.dart';
+import 'package:ecommerceapp/domain/product/entity/product.dart';
 import 'package:ecommerceapp/domain/product/repository/product.dart';
 import 'package:ecommerceapp/service_locator.dart';
 
@@ -66,6 +67,22 @@ class ProductRepositoryImpl extends ProductRepository {
       }
     );
   }
+
+  @override
+  Future<Either> addOrRemoveFavoriteProduct(ProductEntity product) async {
+     var returnedData = await sl<ProductFirebaseService>().addOrRemoveFavoriteProduct(product);
+    return returnedData.fold(
+      (error){
+        return Left(error);
+      }, 
+      (data){
+        return Right(
+          data
+        );
+      }
+    );
+  }
+
 
 
   
