@@ -56,7 +56,7 @@ class CheckOutPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '\$${CartHelper.calculateCartSubtotal(products)}',
+                                  '\$${CartHelpers.calculateCartSubtotal(products)}',
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -81,7 +81,7 @@ class CheckOutPage extends StatelessWidget {
                               products: products,
                               createdDate: DateTime.now().toString(),
                               itemCount: products.length,
-                              totalPrice: CartHelper.calculateCartSubtotal(products),
+                              totalPrice: CartHelpers.calculateCartSubtotal(products),
                               shippingAddress: _addressCon.text
                             )
                           );

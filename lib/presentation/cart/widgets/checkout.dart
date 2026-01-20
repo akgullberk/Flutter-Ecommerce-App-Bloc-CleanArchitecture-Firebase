@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/common/helper/cart/cart.dart';
 import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerceapp/core/configs/theme/app_colors.dart';
@@ -34,7 +35,7 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               Text(
-                '\$${CartHelper.calculateCartSubtotal(products).toString()}',
+                '\$${CartHelpers.calculateCartSubtotal(products).toString()}',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16
@@ -91,7 +92,7 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               Text(
-                '\$${CartHelper.calculateCartSubtotal(products) + 8 }',
+                '\$${CartHelpers.calculateCartSubtotal(products) + 8}',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16
