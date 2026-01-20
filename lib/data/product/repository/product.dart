@@ -83,9 +83,9 @@ class ProductRepositoryImpl extends ProductRepository {
     );
   }
 
-
-
-  
-  
+  @override
+  Future<bool> isFavorite(String productId) async {
+    return await sl<ProductFirebaseService>().isFavorite(productId);
+  }
   
 }

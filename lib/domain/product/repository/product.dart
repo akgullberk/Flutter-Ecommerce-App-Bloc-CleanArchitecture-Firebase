@@ -8,5 +8,6 @@ abstract class ProductRepository {
   Future<Either> getProductsByCategoryId(String categoryId);
   Future<Either> getProductsByTitle(String title);
   Future<Either> addOrRemoveFavoriteProduct(ProductEntity product);
+  Future<bool> isFavorite(String productId);
   
 }

@@ -1,4 +1,6 @@
+import 'package:ecommerceapp/domain/category/usecases/add_or_remove_favorite_product.dart';
 import 'package:ecommerceapp/domain/product/entity/product.dart';
+import 'package:ecommerceapp/domain/product/usecases/is_favorite.dart';
 import 'package:ecommerceapp/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

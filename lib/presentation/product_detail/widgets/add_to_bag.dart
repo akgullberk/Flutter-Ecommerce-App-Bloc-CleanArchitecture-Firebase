@@ -1,8 +1,12 @@
 import 'package:ecommerceapp/common/bloc/button/button_state.dart';
 import 'package:ecommerceapp/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerceapp/common/helper/navigator/app_navigator.dart';
+import 'package:ecommerceapp/common/helper/product/product_price.dart';
 import 'package:ecommerceapp/common/widgets/button/basic_reactive_button.dart';
+import 'package:ecommerceapp/data/order/models/add_to_card_req.dart';
+import 'package:ecommerceapp/domain/order/usecases/add_to_cart.dart';
 import 'package:ecommerceapp/domain/product/entity/product.dart';
+import 'package:ecommerceapp/presentation/cart/pages/cart.dart';
 import 'package:ecommerceapp/presentation/product_detail/bloc/product_color_selection_cubit.dart';
 import 'package:ecommerceapp/presentation/product_detail/bloc/product_quantity_cubit.dart';
 import 'package:ecommerceapp/presentation/product_detail/bloc/product_size_selection_cubit.dart';
@@ -21,7 +25,7 @@ class AddToBag extends StatelessWidget {
     return BlocListener<ButtonStateCubit,ButtonState>(
       listener: (context, state) {
         if (state is ButtonSuccessState) {
-          //AppNavigator.push(context, const CartPage());
+          AppNavigator.push(context, const CartPage());
         } 
         if (state is ButtonFailureState) {
           var snackbar = SnackBar(content: Text(state.errorMessage),behavior: SnackBarBehavior.floating,);

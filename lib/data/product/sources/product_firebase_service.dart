@@ -10,6 +10,7 @@ abstract class ProductFirebaseService {
   Future<Either> getProductsByCategoryId(String categoryId);
   Future<Either> getProductsByTitle(String title);
   Future<Either> addOrRemoveFavoriteProduct(ProductEntity product);
+  Future<bool> isFavorite(String productId);
 
   
 }
@@ -134,6 +135,28 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
       );
     }
   }
+
+  @override
+  Future < bool > isFavorite(String productId) async {
+    try {
+      var user = FirebaseAuth.instance.currentUser;
+      var products = await FirebaseFirestore.instance.collection(
+        "Users"
+      ).doc(user!.uid).collection('Favorites').where(
+        'productId', isEqualTo: productId
+      ).get();
+
+      if (products.docs.isNotEmpty) {
+        return true;
+      } else {
+        return false;
+      }
+
+    } catch (e) {
+      return false;
+    }
+  }
+
 
 
 
