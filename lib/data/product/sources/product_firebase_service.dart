@@ -11,7 +11,7 @@ abstract class ProductFirebaseService {
   Future<Either> getProductsByTitle(String title);
   Future<Either> addOrRemoveFavoriteProduct(ProductEntity product);
   Future<bool> isFavorite(String productId);
-
+  Future<Either> getFavoritesProducts();
   
 }
 
@@ -156,6 +156,25 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
       return false;
     }
   }
+
+  @override
+  Future < Either > getFavoritesProducts() async {
+    try {
+      var user = FirebaseAuth.instance.currentUser;
+      var returnedData = await FirebaseFirestore.instance.collection(
+        "Users"
+      ).doc(user!.uid).collection('Favorites').get();
+      return Right(returnedData.docs.map((e) => e.data()).toList());
+    } catch (e) {
+      return const Left(
+        'Please try again'
+      );
+    }
+  }
+
+  
+
+  
 
 
 
