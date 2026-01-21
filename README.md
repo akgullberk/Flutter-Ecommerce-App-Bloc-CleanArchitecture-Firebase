@@ -16,39 +16,38 @@ E-Commerce App, kullanıcıların en yeni moda ürünlerini keşfedebileceği, k
 
 ---
 
-## 📱 Ekran Görüntüleri
-<div style="display:flex; gap:12px; flex-wrap:wrap;">
-  <img src="https://github.com/user-attachments/assets/a163d32b-9472-4c0a-a8e7-81e89f0db38c" width="220"/>
-  <img src="https://github.com/user-attachments/assets/6fae6100-864d-4fe3-b9b2-f8c1519338fe" width="220"/>
-  <img src="https://github.com/user-attachments/assets/2526a0d4-4e54-4f0c-b1ae-54391c4c750d" width="220"/>
-  <img src="https://github.com/user-attachments/assets/d9633156-b644-4c5e-a320-a655ea569c7a" width="220"/>
-</div>
-
-<br/>
-
-<div style="display:flex; gap:12px; flex-wrap:wrap;">
-  <img src="https://github.com/user-attachments/assets/d1927eeb-5b74-43f0-8ef8-05a3a827f345" width="220"/>
-  <img src="https://github.com/user-attachments/assets/6aa5f560-8852-40b2-b61c-47482de73879" width="220"/>
-  <img src="https://github.com/user-attachments/assets/58c28560-69df-46ec-92e0-d253319c8937" width="220"/>
-  <img src="https://github.com/user-attachments/assets/30682735-925a-400e-b427-e41cdb31fe1e" width="220"/>
-
-  <br/>
-
-<div style="display:flex; gap:12px; flex-wrap:wrap;">
-  <img src="https://github.com/user-attachments/assets/6fccfcaa-8d1d-4316-9246-2755f949e355" width="220"/>
-  <img src="https://github.com/user-attachments/assets/70b43419-8189-4616-84f4-632b59c2ab95" width="220"/>
-  <img src="https://github.com/user-attachments/assets/ffd46717-5c9d-467f-bca6-b420b9fa776e" width="220"/>
-  <img src="https://github.com/user-attachments/assets/14627a2e-ebdd-4db1-9b93-8b9e9ad5dbae" width="220"/>
-
-   <br/>
-
-<div style="display:flex; gap:12px; flex-wrap:wrap;">
-  <img src="https://github.com/user-attachments/assets/8c5c1f73-8702-4165-b323-69b1cdc1168c" width="220"/>
-  <img src="https://github.com/user-attachments/assets/2ff88ffc-0b77-4411-9f23-40838423ce84" width="220"/>
-  <img src="https://github.com/user-attachments/assets/5da33130-22a6-47f4-9954-a37135721f57" width="220"/>
-  <img src="https://github.com/user-attachments/assets/39512d01-7691-44b5-a9b8-901f7e3151b6" width="220"/>
-  <img src="https://github.com/user-attachments/assets/8773d02e-a5b3-48f5-924d-b6f8d29a6eab" width="220"/>
-</div>
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/a163d32b-9472-4c0a-a8e7-81e89f0db38c" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/6fae6100-864d-4fe3-b9b2-f8c1519338fe" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/2526a0d4-4e54-4f0c-b1ae-54391c4c750d" width="220" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d9633156-b644-4c5e-a320-a655ea569c7a" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/d1927eeb-5b74-43f0-8ef8-05a3a827f345" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/6aa5f560-8852-40b2-b61c-47482de73879" width="220" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/58c28560-69df-46ec-92e0-d253319c8937" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/30682735-925a-400e-b427-e41cdb31fe1e" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/6fccfcaa-8d1d-4316-9246-2755f949e355" width="220" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/70b43419-8189-4616-84f4-632b59c2ab95" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/ffd46717-5c9d-467f-bca6-b420b9fa776e" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/14627a2e-ebdd-4db1-9b93-8b9e9ad5dbae" width="220" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/8c5c1f73-8702-4165-b323-69b1cdc1168c" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/2ff88ffc-0b77-4411-9f23-40838423ce84" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/5da33130-22a6-47f4-9954-a37135721f57" width="220" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/39512d01-7691-44b5-a9b8-901f7e3151b6" width="220" /></td>
+    <td><img src="https://github.com/user-attachments/assets/8773d02e-a5b3-48f5-924d-b6f8d29a6eab" width="220" /></td>
+    <td></td>
+  </tr>
+</table>
 
 ## 🚀 Özellikler
 
